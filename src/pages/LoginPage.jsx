@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./login.css";
+import "../../public/img/12345.png";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -16,23 +18,36 @@ function LoginPage() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>เข้าสู่ระบบ</h1>
-      <input
-        type="text"
-        placeholder="ชื่อผู้ใช้"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br />
-      <input
-        type="password"
-        placeholder="รหัสผ่าน"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <button onClick={handleLogin}>เข้าสู่ระบบ</button>
+    <div className="login-container">
+      <div class="logo-wrapper">
+        <img src="../../public/img/12345.png" alt="Logo" className="logo" />
+      </div>
+      <h2>ระบบลงเวลาเข้างาน</h2>
+      <form action="#">
+        <div className="form-group">
+          {/* <label for="username">Username</label> */}
+          <input
+            type="text"
+            id="username"
+            placeholder="ชื่อผู้ใช้"
+            required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          ></input>
+        </div>
+        <div class="form-group">
+          {/* <label for="password">Password</label> */}
+          <input
+            type="password"
+            placeholder="รหัสผ่าน"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" onClick={handleLogin} class="login-btn">
+          เข้าสู่ระบบ
+        </button>
+      </form>
     </div>
   );
 }
